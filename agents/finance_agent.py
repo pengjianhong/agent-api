@@ -4,11 +4,10 @@ from typing import Optional
 from agno.agent import Agent
 from agno.memory.v2.db.postgres import PostgresMemoryDb
 from agno.memory.v2.memory import Memory
-from agno.models.openai import OpenAIChat
+from agno.models.deepseek import DeepSeek
 from agno.storage.agent.postgres import PostgresAgentStorage
 from agno.tools.duckduckgo import DuckDuckGoTools
 from agno.tools.yfinance import YFinanceTools
-
 from db.session import db_url
 
 
@@ -23,7 +22,7 @@ def get_finance_agent(
         agent_id="finance_agent",
         user_id=user_id,
         session_id=session_id,
-        model=OpenAIChat(id=model_id),
+        model=DeepSeek(id="deepseek-chat"),
         # Tools available to the agent
         tools=[
             DuckDuckGoTools(),

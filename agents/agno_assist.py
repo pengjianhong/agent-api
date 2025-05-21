@@ -6,10 +6,11 @@ from agno.embedder.openai import OpenAIEmbedder
 from agno.knowledge.url import UrlKnowledge
 from agno.memory.v2.db.postgres import PostgresMemoryDb
 from agno.memory.v2.memory import Memory
-from agno.models.openai import OpenAIChat
+from agno.models.deepseek import DeepSeek
 from agno.storage.agent.postgres import PostgresAgentStorage
 from agno.tools.duckduckgo import DuckDuckGoTools
 from agno.vectordb.pgvector import PgVector, SearchType
+
 
 from db.session import db_url
 
@@ -37,7 +38,7 @@ def get_agno_assist(
         agent_id="agno_assist",
         user_id=user_id,
         session_id=session_id,
-        model=OpenAIChat(id=model_id),
+        model=DeepSeek(id="deepseek-chat"),
         # Tools available to the agent
         tools=[DuckDuckGoTools()],
         # Description of the agent
@@ -115,7 +116,7 @@ def get_agno_assist(
         # -*- Memory -*-
         # Enable agentic memory where the Agent can personalize responses to the user
         memory=Memory(
-            model=OpenAIChat(id=model_id),
+            model=DeepSeek(id="deepseek-chat"),
             db=PostgresMemoryDb(table_name="user_memories", db_url=db_url),
             delete_memories=True,
             clear_memories=True,
