@@ -170,15 +170,12 @@ class WechatArticleSummarizer:
     def save_summary_to_file(self, summary):
         """将总结保存为markdown文件"""
         content = f"""# {summary.title}
-
-## 一句话概述
-{summary.one_line_summary}
-
-## 总结
-{summary.detailed_summary}
-
-## 重点划线
-"""
+        ## 一句话概述
+        {summary.one_line_summary}
+        ## 总结
+        {summary.detailed_summary}
+        ## 重点划线
+        """
         
         # 添加关键点
         for i, point in enumerate(summary.key_points, 1):

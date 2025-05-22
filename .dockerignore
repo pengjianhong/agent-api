@@ -17,8 +17,8 @@
 .vscode
 
 # Ignore .env files
-.env
-.envrc
+# .env
+# .envrc
 
 # ignore storage dir
 /storage

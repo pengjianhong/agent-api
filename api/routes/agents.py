@@ -22,6 +22,7 @@ agents_router = APIRouter(prefix="/agents", tags=["Agents"])
 class Model(str, Enum):
     gpt_4_1 = "gpt-4.1"
     o4_mini = "o4-mini"
+    deepseek_chat = "deepseek-chat"
 
 
 @agents_router.get("", response_model=List[str])
@@ -59,7 +60,7 @@ class RunRequest(BaseModel):
 
     message: str
     stream: bool = True
-    model: Model = Model.gpt_4_1
+    model: Model = Model.deepseek_chat
     user_id: Optional[str] = None
     session_id: Optional[str] = None
 

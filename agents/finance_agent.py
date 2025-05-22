@@ -12,7 +12,7 @@ from db.session import db_url
 
 
 def get_finance_agent(
-    model_id: str = "gpt-4.1",
+    model_id: str = "deepseek-chat",
     user_id: Optional[str] = None,
     session_id: Optional[str] = None,
     debug_mode: bool = True,
@@ -112,7 +112,7 @@ def get_finance_agent(
         # -*- Memory -*-
         # Enable agentic memory where the Agent can personalize responses to the user
         memory=Memory(
-            model=OpenAIChat(id=model_id),
+            model=DeepSeek(id="deepseek-chat"),
             db=PostgresMemoryDb(table_name="user_memories", db_url=db_url),
             delete_memories=True,
             clear_memories=True,

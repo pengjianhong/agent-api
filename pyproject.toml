@@ -27,6 +27,7 @@ dependencies = [
   "sqlalchemy>=2.0.41",
   "tantivy>=0.24.0",
   "tavily-python>=0.7.2",
+  "psycopg2>=2.9.10",
 ]
 
 [project.optional-dependencies]
